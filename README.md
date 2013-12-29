@@ -19,9 +19,9 @@ CSE571S: Network Security at Washington University in St. Louis.
 
 [A Practical Guide to
 Honeypots](http://www.cs.wustl.edu/~jain/cse571-09/ftp/honey/index.html):
-an overview of honeypot technology in 2009. We'll eventually copy it over to the Wiki.
+an overview of honeypot technology in 2009. We'll eventually add it to the repository in Markdown format.
 
-[User Manual Wiki](https://github.com/twschiller/HoneyRJ/wiki/User-Manual): 
+[User Manual](https://github.com/twschiller/HoneyRJ/blob/master/manual/user-manual.md): 
 the HoneyRJ user manual
 
 ## Disclaimer
