@@ -1,6 +1,7 @@
-package gui;
+package edu.wustl.honeyrj.gui;
 
-import honeyrj.HoneyRJ;
+import edu.wustl.honeyrj.honeyrj.*;
+import edu.wustl.honeyrj.lowinteraction.*;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -9,9 +10,12 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.*;
-
-import lowinteraction.LIModule;
+import javax.swing.BorderFactory;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 
 /**
  * Provides the main application frame and creates the header and module pane.

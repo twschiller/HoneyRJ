@@ -1,4 +1,4 @@
-package lowinteraction;
+package edu.wustl.honeyrj.lowinteraction;
 
 import java.util.Vector;
 

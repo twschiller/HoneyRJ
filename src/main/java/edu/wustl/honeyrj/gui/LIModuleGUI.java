@@ -1,4 +1,4 @@
-package gui;
+package edu.wustl.honeyrj.gui;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -11,17 +11,15 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import lowinteraction.LIModule;
+import edu.wustl.honeyrj.lowinteraction.LIModule;
+
 /**
  * Provides the GUI for an individual module.  These are added into the LIModuleContainer
  * @author Eric Peter
- *@see LIModuleContainer
+ * @see LIModuleContainer
  */
 public class LIModuleGUI extends JPanel implements ActionListener {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = -6195602253907757865L;
 	private LIModule _liModule;
 	private JLabel _mainInfo;

@@ -1,4 +1,4 @@
-package logging;
+package edu.wustl.honeyrj.logging;
 
 import java.net.InetAddress;
 import java.util.Date;

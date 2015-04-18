@@ -1,8 +1,8 @@
-package lowinteraction;
+package edu.wustl.honeyrj.lowinteraction;
 
 
-import gui.LIModuleGUI;
-import honeyrj.HoneyRJ;
+import edu.wustl.honeyrj.gui.LIModuleGUI;
+import edu.wustl.honeyrj.honeyrj.HoneyRJ;
 
 import java.io.File;
 import java.io.IOException;
@@ -11,7 +11,7 @@ import java.net.SocketException;
 import java.util.Date;
 import java.util.TreeMap;
 
-import logging.LogFile;
+import edu.wustl.honeyrj.logging.LogFile;
 
 /**
  * An LIModule listens on a port specified by a LIProtocol and launches threads to handle client connections.
@@ -69,6 +69,7 @@ public class LIModule implements Runnable {
 	 * reference to GUI container
 	 */
 	private LIModuleGUI _gui;
+
 	/**
 	 * Define which GUI object we are contained in for updates on number of connection
 	 * @param _gui LIModuleGUI to register with

@@ -1,17 +1,13 @@
-/**
- * 
- */
-package protocol;
+package edu.wustl.honeyrj.protocol;
 
 import java.util.Vector;
 
-import lowinteraction.LIHelper;
-import lowinteraction.LIProtocol;
-import lowinteraction.TALK_FIRST;
+import edu.wustl.honeyrj.lowinteraction.LIHelper;
+import edu.wustl.honeyrj.lowinteraction.LIProtocol;
+import edu.wustl.honeyrj.lowinteraction.TALK_FIRST;
 
 /**
- * @author ecp1
- *
+ * @author Eric Peter
  */
 public class SampleServerFirstProtocol implements LIProtocol {
 	boolean connected;

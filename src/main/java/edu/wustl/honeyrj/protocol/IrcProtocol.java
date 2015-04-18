@@ -1,11 +1,11 @@
-package protocol;
+package edu.wustl.honeyrj.protocol;
 
 import java.util.Vector;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import lowinteraction.LIProtocol;
-import lowinteraction.TALK_FIRST;
+import edu.wustl.honeyrj.lowinteraction.LIProtocol;
+import edu.wustl.honeyrj.lowinteraction.TALK_FIRST;
 
 /**
  * An implementation of IRC for HoneyRJ

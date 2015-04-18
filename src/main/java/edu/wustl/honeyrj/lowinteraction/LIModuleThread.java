@@ -1,6 +1,6 @@
-package lowinteraction;
+package edu.wustl.honeyrj.lowinteraction;
 
-import honeyrj.HoneyRJ;
+import edu.wustl.honeyrj.honeyrj.HoneyRJ;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -14,9 +14,9 @@ import java.net.SocketTimeoutException;
 import java.util.Date;
 import java.util.Vector;
 
-import logging.LogFile;
-import logging.LogRecord;
-import logging.LoggingException;
+import edu.wustl.honeyrj.logging.LogFile;
+import edu.wustl.honeyrj.logging.LogRecord;
+import edu.wustl.honeyrj.logging.LoggingException;
 
 /**
  * Handles client connections that a LIModule receives

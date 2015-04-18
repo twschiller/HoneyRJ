@@ -1,4 +1,4 @@
-package honeyrj;
+package edu.wustl.honeyrj.honeyrj;
 
 import java.io.File;
 import java.io.IOException;
@@ -6,8 +6,8 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.TreeMap;
 
-import logging.LogFile;
-import lowinteraction.LIModule;
+import edu.wustl.honeyrj.logging.LogFile;
+import edu.wustl.honeyrj.lowinteraction.LIModule;
 
 /**
  * 
@@ -75,8 +75,7 @@ public class HoneyRJ {
 	/**
 	 * attempt to start the module running on the given port
 	 * @param portToStart int
-	 * @return false if it fails to start or does not exist 
-	 * @retun true on succes
+	 * @return true on success, false if it fails to start or does not exist
 	 */
 	public boolean startPort(int portToStart) {
 		if(!_services.containsKey(portToStart))	return false; //sanity
@@ -99,8 +98,7 @@ public class HoneyRJ {
 	/**
 	 * register a given LIModule with this HoneyRJ
 	 * @param moduleToBeConnected
-	 * @return false if there already exists a Module on the port of moduleToBeConnected
-	 * @return true on succes
+	 * @return true on success, false if there already exists a Module on the port of moduleToBeConnected
 	 * @see LIModule#registerParent(HoneyRJ)
 	 */
 	public boolean RegisterService(LIModule moduleToBeConnected) {
@@ -119,8 +117,7 @@ public class HoneyRJ {
 	 * disconncts the given module from the HoneyRJ
 	 * the module will attempt to send its logs back to us
 	 * @param moduleToBeDisconnected
-	 * @return false if the module isn't in the HoneyRJ
-	 * @return true on success
+	 * @return true on succes, false if the module isn't in the HoneyRJ
 	 */
 	public boolean DeRegisterService(LIModule moduleToBeDisconnected) {
 		int port = moduleToBeDisconnected.getPort();
@@ -137,8 +134,7 @@ public class HoneyRJ {
 	/**
 	 * Pause the given module from accepting connections
 	 * @param moduleToPause
-	 * @return false if the module isn't in the HoneyRJ
-	 * @return true on success
+	 * @return true on success, false if the module isn't in the HoneyRJ
 	 */
 	public boolean PauseNewConnections(LIModule moduleToPause) {
 		if(_services.containsKey(moduleToPause.getPort()) && moduleToPause == _services.get(moduleToPause.getPort())) {
@@ -150,8 +146,7 @@ public class HoneyRJ {
 	/**
 	 * Resumes the given module to accepting connections
 	 * @param moduleToResume
-	 * @return false if the module isn't in the HoneyRJ
-	 * @return true on success
+	 * @return true on succes, false if the module isn't in the HoneyRJ
 	 */
 	public boolean ResumeNewConnections(LIModule moduleToResume) {
 		if(_services.containsKey(moduleToResume.getPort()) && moduleToResume == _services.get(moduleToResume.getPort())) {
@@ -163,7 +158,6 @@ public class HoneyRJ {
 
 	/**
 	 * accept a collection of LogFiles from a module and store them
-	 * @param files
 	 */
 	public void storeLogFiles(LIModule from, LogFile file) {
 		_logs.get(from.getPort()).put(file.getStartedDate(), file);

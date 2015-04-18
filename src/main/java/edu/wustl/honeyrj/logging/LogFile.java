@@ -1,6 +1,6 @@
-package logging;
+package edu.wustl.honeyrj.logging;
 
-import honeyrj.HoneyRJ;
+import edu.wustl.honeyrj.honeyrj.HoneyRJ;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -8,7 +8,7 @@ import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Date;
 
-import lowinteraction.LIModuleThread;
+import edu.wustl.honeyrj.lowinteraction.LIModuleThread;
 
 
 /**

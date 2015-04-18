@@ -1,4 +1,4 @@
-package logging;
+package edu.wustl.honeyrj.logging;
 
 public class LoggingException extends Exception {
 
@@ -6,9 +6,6 @@ public class LoggingException extends Exception {
 		super(string);
 	}
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 8020025770219336330L;
 
 }

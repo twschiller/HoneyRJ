@@ -1,4 +1,4 @@
-package gui;
+package edu.wustl.honeyrj.gui;
 
 import java.awt.Color;
 import java.awt.Dimension;

@@ -1,18 +1,16 @@
-package honeyrj;
+package edu.wustl.honeyrj.honeyrj;
 
-import gui.HoneyRJGUI;
-import lowinteraction.LIModule;
-import lowinteraction.LIProtocol;
-import protocol.FtpProtocol;
-import protocol.IrcProtocol;
+import edu.wustl.honeyrj.gui.HoneyRJGUI;
+import edu.wustl.honeyrj.lowinteraction.LIModule;
+import edu.wustl.honeyrj.lowinteraction.LIProtocol;
+import edu.wustl.honeyrj.protocol.FtpProtocol;
+import edu.wustl.honeyrj.protocol.IrcProtocol;
 
 public class HoneyRJMain {
 	private static HoneyRJ honeyrj;
 	private static HoneyRJGUI gui;
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
+
+        public static void main(String[] args) {
 		launchRJ();
 		createSampleProtocols();
 		
