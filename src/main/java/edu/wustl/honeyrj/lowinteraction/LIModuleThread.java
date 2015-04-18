@@ -84,12 +84,16 @@ public class LIModuleThread implements Runnable {
 		
 		//set the timeout value
 		try {
-			_socket.setSoTimeout(HoneyRJ.DEFAULT_TIME_OUT_MSEC);
-		} catch (SocketException e1) {} 
+			_socket.setSoTimeout(HoneyRJ.DEFAULT_TIME_OUT_MS);
+		} catch (SocketException ignored) {
+
+		}
 		_parent = parent;
 		try {
 			_protocol = _parent.getProtocol().getClass().newInstance();
-		} catch (Exception e) {}
+		} catch (Exception ignored) {
+
+		}
 		
 		_startTime = new Date();
 		try {
@@ -147,7 +151,7 @@ public class LIModuleThread implements Runnable {
 		    }
 		    
 		    //now enter the main loop for the rest of the interaction (both cases just sent a message)
-		    while ((new Date().getTime() - (_startTime.getTime()) <= HoneyRJ.DEFAULT_TIME_OUT_MSEC) && (inputLine = in.readLine()) != null) { //loop recieving messages
+		    while ((new Date().getTime() - (_startTime.getTime()) <= HoneyRJ.DEFAULT_TIME_OUT_MS) && (inputLine = in.readLine()) != null) { //loop recieving messages
 		    	_logFile.add(createRcvdLogEntry(inputLine)); //log the rcvd message
 		    	
 		    	//parse and reply
@@ -166,24 +170,30 @@ public class LIModuleThread implements Runnable {
 		    in.close();
 		    _socket.close();
 		    //close the log out
-		    if ((new Date().getTime() - (_startTime.getTime()) > HoneyRJ.DEFAULT_TIME_OUT_MSEC )) {
+		    if ((new Date().getTime() - (_startTime.getTime()) > HoneyRJ.DEFAULT_TIME_OUT_MS)) {
 		    	_logFile.setEndingLogInfo("*****Protocol " + _protocol + " TIMED OUT talking to " + _socket.getInetAddress() + " using local port " + _socket.getLocalPort() +", connection closed.****");
 		    } else {
 		    _logFile.setEndingLogInfo("*****Protocol " + _protocol + " is finished talking to " + _socket.getInetAddress() + " using local port " + _socket.getLocalPort() +"****");
 		    }
 		} catch (SocketTimeoutException e ){
-			out.close();
+			if (out != null){
+				out.close();
+			}
 			try {
-				in.close();
+				if (in != null) {
+					in.close();
+				}
 				_socket.close();
-			} catch (IOException f) {}
+			} catch (IOException ignored) {
+
+			}
 			_logFile.setEndingLogInfo("*****Protocol " + _protocol + " TIMED OUT talking to " + _socket.getInetAddress() + " using local port " + _socket.getLocalPort() +", connection closed.****");
 		} catch (IOException e) {
 			e.printStackTrace();
 		    _logFile.setEndingLogInfo("*****Protocol " + _protocol + " FAILED talking to " + _socket.getInetAddress() + " using local port " + _socket.getLocalPort() +", connection closed.****");
 		} finally {
 			//report what is available of the log back to the parent
-			_parent.recieveLogFileFromThread(_logFile);
+			_parent.receiveLogFileFromThread(_logFile);
 		}	
 	}
 	

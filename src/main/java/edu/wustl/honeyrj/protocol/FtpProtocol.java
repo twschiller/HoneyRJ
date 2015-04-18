@@ -22,7 +22,7 @@ public class FtpProtocol implements LIProtocol {
 	private int connectionState = NO_CONN;
 
 	private int cmdTryCnt = 0;
-	private int cmdTryMax = 0;
+	private final static int cmdTryMax = 0;
 
 	
 	public int getPort() {

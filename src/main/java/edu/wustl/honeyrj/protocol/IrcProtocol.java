@@ -15,7 +15,7 @@ import edu.wustl.honeyrj.lowinteraction.TALK_FIRST;
 public class IrcProtocol implements LIProtocol {
 
 	private String myName = "hubbard.freenode.net";
-	private String myFakeHostName = "freenode.club.cc.cmu.edu";
+	private final String myFakeHostName = "freenode.club.cc.cmu.edu";
 	private String nickName = null;
 	private String userName = null;
 	private String hostName = null;

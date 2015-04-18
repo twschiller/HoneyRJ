@@ -125,11 +125,15 @@ public class LIModule implements Runnable {
 				}
 				try {
 					Thread.sleep(HoneyRJ.TIME_WAIT_CONNECTION);
-				} catch (InterruptedException e) {}//prevent a DOS attack and high cpu during pause state
+				} catch (InterruptedException ignored) {
+					//prevent a DOS attack and high cpu during pause state
+				}
 			}
 			try {
 				Thread.sleep(HoneyRJ.TIME_WAIT_CONNECTION);
-			} catch (InterruptedException e) {}//prevent a DOS attack and high cpu during pause state
+			} catch (InterruptedException ignored) {
+				//prevent a DOS attack and high cpu during pause state
+			}
 		}
 		
 		//if we got here, the thread is dead, let us die
@@ -164,8 +168,12 @@ public class LIModule implements Runnable {
 	public void pauseListeningForConnections() {
 		listening = false;
 		try {
-			if(_server != null)		_server.close();
-		} catch (IOException e) {}
+			if(_server != null) {
+				_server.close();
+			}
+		} catch (IOException ignored) {
+
+		}
 		_server = null;
 	}
 
@@ -192,11 +200,13 @@ public class LIModule implements Runnable {
 		listening = false;
 		
 		try {
-			if(_server != null)		_server.close();
-		} catch (IOException e) {}
-		
+			if(_server != null) {
+				_server.close();
+			}
+		} catch (IOException ignored) {
 
-		
+		}
+
 		_thread = null;
 		_server = null;
 	}
@@ -227,7 +237,7 @@ public class LIModule implements Runnable {
      * A child thread that is communicating with a client should call this method upon closing the connection to store the log
      * @param file
      */
-	protected void recieveLogFileFromThread(LogFile file) {
+	protected void receiveLogFileFromThread(LogFile file) {
 		//file.LogToConsole(); //TODO debug method only
 		_logFiles.put(file.getStartedDate(),file);
 		_parent.storeLogFiles(this, file);

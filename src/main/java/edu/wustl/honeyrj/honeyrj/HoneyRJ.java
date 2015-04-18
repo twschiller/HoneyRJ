@@ -34,7 +34,7 @@ public class HoneyRJ {
 	/**
 	 * The default time out for connections.  Any connection active after this period will be closed and a log entry will be created.
 	 */
-	public static final int DEFAULT_TIME_OUT_MSEC = 120000;
+	public static final int DEFAULT_TIME_OUT_MS = 120000;
 	/**
 	 * Default logging directory
 	 */
@@ -45,10 +45,11 @@ public class HoneyRJ {
 	 */
 	public static final boolean LOG_TO_CONSOLE = false;
 	/**
-	 * Interval between connections for one protocol (in msec)
+	 * Interval between connections for one protocol (in ms)
 	 */
 	public static final int TIME_WAIT_CONNECTION = 5000;
-	/** 
+
+	/**
 	 * constructor
 	 * @throws HoneyRJException if the log directory can't be created
 	 */
@@ -101,6 +102,7 @@ public class HoneyRJ {
 	 * @return true on success, false if there already exists a Module on the port of moduleToBeConnected
 	 * @see LIModule#registerParent(HoneyRJ)
 	 */
+	@SuppressWarnings("UnusedReturnValue")
 	public boolean RegisterService(LIModule moduleToBeConnected) {
 		if(_services.containsKey(moduleToBeConnected.getPort())) { //already have a service registered on this port
 			return false;
@@ -110,14 +112,13 @@ public class HoneyRJ {
 			moduleToBeConnected.registerParent(this); //register with this HoneyRJ
 			return true;
 		}
-		
 	}
 	
 	/**
-	 * disconncts the given module from the HoneyRJ
+	 * disconnects the given module from the HoneyRJ
 	 * the module will attempt to send its logs back to us
 	 * @param moduleToBeDisconnected
-	 * @return true on succes, false if the module isn't in the HoneyRJ
+	 * @return true on success, false if the module isn't in the HoneyRJ
 	 */
 	public boolean DeRegisterService(LIModule moduleToBeDisconnected) {
 		int port = moduleToBeDisconnected.getPort();
@@ -146,14 +147,15 @@ public class HoneyRJ {
 	/**
 	 * Resumes the given module to accepting connections
 	 * @param moduleToResume
-	 * @return true on succes, false if the module isn't in the HoneyRJ
+	 * @return true on success, false if the module isn't in the HoneyRJ
 	 */
 	public boolean ResumeNewConnections(LIModule moduleToResume) {
 		if(_services.containsKey(moduleToResume.getPort()) && moduleToResume == _services.get(moduleToResume.getPort())) {
 			moduleToResume.resumeListeningForConnections();
 			return true;
-		} else	return false;
-			
+		} else	{
+			return false;
+		}
 	}
 
 	/**
@@ -161,7 +163,6 @@ public class HoneyRJ {
 	 */
 	public void storeLogFiles(LIModule from, LogFile file) {
 		_logs.get(from.getPort()).put(file.getStartedDate(), file);
-		
 	}
 	
 	public void DebugServices() {

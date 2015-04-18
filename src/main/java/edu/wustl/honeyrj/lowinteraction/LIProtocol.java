@@ -13,8 +13,8 @@ public interface LIProtocol {
 	 * The return value of this method specifies if the server sends the first message in the protocol (SVR_FIRST) or if the client does (CLIENT_FIRST)
 	 * The first message is defined as the first person to transmit a String over the network after the TCP handshake/Java socket setup.
 	 * 
-	 * @return SVR_FIRST if the server sends the first message (ie SMTP)
-	 * @return CLIENT_FIRST if the client sends the first message (ie HTTP)
+	 * @return SVR_FIRST if the server sends the first message (i.e. SMTP)
+	 * @return CLIENT_FIRST if the client sends the first message (i.e. HTTP)
 	 */
 	TALK_FIRST whoTalksFirst();
 	

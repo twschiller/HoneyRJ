@@ -7,10 +7,9 @@ import edu.wustl.honeyrj.protocol.FtpProtocol;
 import edu.wustl.honeyrj.protocol.IrcProtocol;
 
 public class HoneyRJMain {
-	private static HoneyRJ honeyrj;
 	private static HoneyRJGUI gui;
 
-        public static void main(String[] args) {
+	public static void main(String[] args) {
 		launchRJ();
 		createSampleProtocols();
 		
@@ -24,9 +23,7 @@ public class HoneyRJMain {
 	}
 	
 	private static void launchRJ() {
-		honeyrj = null;
-		
-		
+		HoneyRJ honeyrj = null;
 		try {
 			honeyrj = new HoneyRJ();
 		} catch (HoneyRJException e) {

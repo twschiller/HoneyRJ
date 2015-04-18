@@ -37,7 +37,7 @@ public class SampleClientFirstProtocol implements LIProtocol {
 	public Vector<String> processInput(String messageFromClient) {
 		switch(State) {
 		case S1:
-			if(messageFromClient.equals("toddgay"))		State = S2;
+			if(messageFromClient.equals("username")) State = S2;
 			return  LIHelper.vectorFromString("HELLO");
 		case S2:
 			if(messageFromClient.equals("cya"))	State = S3;

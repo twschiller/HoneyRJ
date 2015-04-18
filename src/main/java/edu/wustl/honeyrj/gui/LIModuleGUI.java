@@ -22,7 +22,6 @@ public class LIModuleGUI extends JPanel implements ActionListener {
 
 	private static final long serialVersionUID = -6195602253907757865L;
 	private LIModule _liModule;
-	private JLabel _mainInfo;
 	private JLabel _numConnections;
 	private JButton _start;
 	private JButton _stop;
@@ -42,6 +41,7 @@ public class LIModuleGUI extends JPanel implements ActionListener {
 		
 		setBorder(BorderFactory.createRaisedBevelBorder());
 		//label
+		JLabel _mainInfo;
 		_mainInfo = new JLabel(_liModule.toString() + " (" + _liModule.getPort() +")");
 		_mainInfo.setVerticalAlignment(JLabel.CENTER);
 		_mainInfo.setHorizontalAlignment(JLabel.CENTER);
