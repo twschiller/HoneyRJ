@@ -1,6 +1,8 @@
 HoneyRJ
 =======
 
+[![Build Status](https://travis-ci.org/twschiller/HoneyRJ.svg)](https://travis-ci.org/twschiller/HoneyRJ)
+
 HoneyRJ is a low-interaction honeypot written in Java. A
 low-interaction honeypot serves a number of limited functionality
 protocols with the intent of capturing the source of traffic coming to
